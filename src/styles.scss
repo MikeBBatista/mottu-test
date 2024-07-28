@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+$title-font: 'Creepster';
+$text-font: 'Poppins';
+$font-primary-color: #A4A4A4;
+$primary-background: #0A0A0A;
+$body-background: #1F1F1F;
+$border-color: #3D3D3D;
+$white-background: #FFFFFF;
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $body-background;
+  font-family: $text-font;
+}
