@@ -1,25 +1,25 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
+import { CharacterApiParams } from '../models/rick-and-morty.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CharacterService {
+export class RickAndMortyService {
   private apiUrl = 'https://rickandmortyapi.com/api';
 
   constructor(private http: HttpClient) { }
 
-  getCharacters(params: { [key: string]: any }): Observable<any> {
+  getCharacters(params: CharacterApiParams): Observable<any> {
+    const { name = '', page = 1 } = params;
     let httpParams = new HttpParams();
 
-    for (const key in params) {
-      if (params.hasOwnProperty(key)) {
-        httpParams = httpParams.set(key, params[key]);
-      }
-    }
-
-    return this.http.get<any>(this.apiUrl, { params: httpParams }).pipe(
+    httpParams = httpParams
+    .set('name', name)
+    .set('page', page);
+    
+    return this.http.get<any>(`${this.apiUrl}/character`, { params: httpParams }).pipe(
       catchError(this.manageError)
     );
   }

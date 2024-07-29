@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { faHome, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { CharacterState } from '../../../state/character.state';
 
 @Component({
   selector: 'app-toolbar',
@@ -9,4 +12,9 @@ import { faHome, faHeart } from '@fortawesome/free-solid-svg-icons';
 export class ToolbarComponent {
   homeIcon = faHome;
   favIcon = faHeart;
+  favoriteCount$: Observable<number>;
+
+  constructor(private store: Store) {
+    this.favoriteCount$ = this.store.select(CharacterState.getFavoriteCount);
+  }
 }

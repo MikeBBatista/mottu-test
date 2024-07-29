@@ -1,15 +1,18 @@
-@import '../../../styles.scss';
+@import '../../../../styles.scss';
 
 #toolbar {
   background-color: black;
-  color: green;
   height: 64px;
   margin: 0;
   padding-left: 8px;
   padding-right: 8px;
+  padding-bottom: 12px;
+  position: fixed;
+  z-index: 1;
 }
 
 .toolbar-itens {
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -55,10 +58,26 @@ button {
 
   .fav-count {
     border-radius: 10px;
-    border: 0px;
     height: 20px;
-    width: 20px;
+    min-width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-left: 8px;
-    background-color: white;
+    background-color: #FFFFFF;
+
+    span {
+      font-weight: 700;
+      margin: 5px;
+      font-size: 14px;
+      color: $font-third-color;
+    }
+  }
+}
+
+
+@media (max-width: 410px) {
+  #toolbar {
+    min-height: 116px;
   }
 }

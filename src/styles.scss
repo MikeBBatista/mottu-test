@@ -1,6 +1,8 @@
 $title-font: 'Creepster';
 $text-font: 'Poppins';
 $font-primary-color: #A4A4A4;
+$font-second-color: #FAFAFA;
+$font-third-color: #0A0A0A;
 $primary-background: #0A0A0A;
 $body-background: #1F1F1F;
 $border-color: #3D3D3D;
@@ -11,4 +13,12 @@ body {
   padding: 0;
   background-color: $body-background;
   font-family: $text-font;
+}
+
+button {
+  cursor: pointer;
+}
+
+p, span {
+  color: $font-primary-color;
 }

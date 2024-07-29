@@ -1,0 +1,21 @@
+<div class="card">
+  <div [ngClass]="{
+    'icon-div-favorite': isFavorite,
+    'icon-div-not-favorite': !isFavorite}"
+    class="icon-div">
+    <div class="fav-icon-div">
+      <i [ngClass]="{
+        'fa-solid': isFavorite,
+        'fa-regular': !isFavorite}"
+        class="fa-heart fav-icon"
+        (click)="favIconClick()"></i>
+    </div>
+  </div>
+  <div class="div-img">
+    <img [src]="character.image" alt="Character from Rick and Morty">
+  </div>
+  <div class="info">
+    <p class="font-name">{{character.name}}</p>
+    <p class="font-species">{{character.species}}</p>
+  </div>
+</div>

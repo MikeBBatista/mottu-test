@@ -1,0 +1,10 @@
+<div class="character-list">
+  <app-character-info 
+    class="info-card" 
+    *ngFor="let character of characters$ | async" 
+    [character]="character"
+    [isFavorite]="isFavoriteMap[character.id]"
+    (favCharater)="toggleFavorite($event)">
+  </app-character-info>
+  <app-page-loading *ngIf="(loading$ | async) === true"></app-page-loading>
+</div>
