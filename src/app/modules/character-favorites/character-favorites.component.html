@@ -1,8 +1,8 @@
 <div class="breadcrumb">
-  <app-breadcrumb [title]="'Início'" [hasFilter]="true"></app-breadcrumb>
-  <ng-container *ngIf="(characters$ | async) as characters">
+  <app-breadcrumb [title]="'Favoritos'"></app-breadcrumb>
+  <ng-container *ngIf="(favorites$ | async) as favorites">
     <app-no-data-info
-    *ngIf="characters.length === 0" 
+    *ngIf="favorites.length === 0" 
     [title]="noDataTitle" 
     [info]="noDataInfo">
   </app-no-data-info>
@@ -11,9 +11,9 @@
 <div class="character-list">
   <app-character-info 
     class="info-card" 
-    *ngFor="let character of characters$ | async" 
-    [character]="character"
-    [isFavorite]="isFavoriteMap[character.id]"
+    *ngFor="let favorite of favorites$ | async" 
+    [character]="favorite"
+    [isFavorite]="true"
     (favCharater)="toggleFavorite($event)">
   </app-character-info>
   <app-page-loading *ngIf="(loading$ | async) === true"></app-page-loading>

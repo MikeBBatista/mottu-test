@@ -1,0 +1,39 @@
+@import '../../../../styles.scss';
+
+.no-data-info {
+  max-width: 720px;
+  background-color: $primary-background;
+  height: 512px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    color: $font-second-color;
+  }
+
+  .info {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: $font-primary-color;
+  }
+
+  button {
+    width: 139px;
+    height: 40px;
+    border-radius: 12px;
+    color: $font-third-color;
+    background-color: #FFFFFF;
+  }
+}

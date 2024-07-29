@@ -14,3 +14,8 @@ export class RemoveFavorite {
   static readonly type = '[Character] Remove Favorite';
   constructor(public payload: Character) {}
 }
+
+export class FilterCharacters {
+  static readonly type = '[Filter] Filter';
+  constructor(public params: CharacterApiParams) {}
+}

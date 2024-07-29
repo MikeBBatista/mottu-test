@@ -1,0 +1,8 @@
+<div class="breadcrumb">
+  <h2 class="title">{{ title }}</h2>
+  <div class="search-input" *ngIf="hasFilter">
+    <mat-form-field appearance="outline" class="secondary">
+      <mat-label>Pesquisar</mat-label>
+      <input matInput placeholder="Pesquisar" (keyup)="onKeyup($event)">
+    </mat-form-field>
+</div>

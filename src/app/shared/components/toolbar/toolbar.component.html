@@ -2,8 +2,14 @@
   <mat-toolbar-row class="toolbar-itens">
     <img src="assets/imgs/logo.png" alt="logo">
     <div class="buttons-div">
-      <button class="home-button"><fa-icon [icon]="homeIcon"></fa-icon>Início</button>
-      <button class="fav-button">
+      <button 
+        class="home-button"
+        [routerLink]="'/character-list'" 
+        routerLinkActive="active-link" 
+        [routerLinkActiveOptions]="{ exact: true }"><fa-icon [icon]="homeIcon"></fa-icon>Início
+      </button>
+      <button class="fav-button"   [routerLink]="'/favorites'" 
+      routerLinkActive="active-link" >
         <fa-icon [icon]="favIcon"></fa-icon> 
           <span>Favoritos</span>
           <div class="fav-count">

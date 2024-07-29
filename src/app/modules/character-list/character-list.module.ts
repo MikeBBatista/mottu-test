@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CharacterListComponent } from './character-list.component';
 import { SharedModule } from '../../shared/shared.module';
+import { CharacterListRoutingModule } from './character-list-routing.module';
 
 
 
@@ -11,7 +12,8 @@ import { SharedModule } from '../../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    CharacterListRoutingModule
   ],
   exports: [
     CharacterListComponent,

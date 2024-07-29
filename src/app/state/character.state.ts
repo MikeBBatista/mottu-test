@@ -1,8 +1,9 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { Injectable } from '@angular/core';
 import { Character } from '../models/rick-and-morty.model';
-import { AddFavorite, GetCharacters, RemoveFavorite } from './character.actions';
+import { AddFavorite, FilterCharacters, GetCharacters, RemoveFavorite } from './character.actions';
 import { RickAndMortyService } from '../services/rick-and-morty.service';
+import { catchError, of, switchMap } from 'rxjs';
 
 export interface CharacterStateModel {
   characters: Character[];
@@ -102,5 +103,32 @@ export class CharacterState {
     const state = ctx.getState();
     const updatedFavorites = state.favorites.filter(character => character.id !== action.payload.id);
     ctx.patchState({ favorites: updatedFavorites });
+  }
+
+  @Action(FilterCharacters)
+  filter(ctx: StateContext<CharacterStateModel>, action: FilterCharacters) {
+    const params = action.params;
+
+    ctx.patchState({ loading: true });
+
+    return this.rickAndMortyService.getCharacters(params).pipe(
+      switchMap(result => {
+        const filteredCharacters = result.results || [];
+        const filteredPages = result.info?.pages || 0;
+        const filteredCount = result.info?.count || 0;
+
+        ctx.patchState({ 
+          characters: filteredCharacters,
+          loading: false, 
+          pages: filteredPages, 
+          count: filteredCount
+        });
+        return of(result);
+      }),
+      catchError(error => {
+        ctx.patchState({ error: error, loading: false });
+        return of(error);
+      })
+    );
   }
 }

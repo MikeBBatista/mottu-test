@@ -10,13 +10,8 @@
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 24px;
   max-width: 720px;
+  padding-bottom: 24px;
   flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
-}
-
-@media (max-width: 600px) {
-  .character-list {
-    margin-left: 24px;
-  }
 }

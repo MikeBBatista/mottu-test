@@ -1,0 +1,37 @@
+@import '../../../../styles.scss';
+
+.breadcrumb {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 48px;
+
+  @media (max-width: 600px) {
+    padding-top: 48px;
+    padding-left: 24px;
+    flex-direction: column;
+  }
+
+  .search-input {
+    width: 327px;
+    height: 48px;
+    border-radius: 48px;
+  }
+  mat-form-field {
+    width: 100%;
+  }
+
+  
+  input {
+    color: $font-second-color !important;
+  }
+
+  .title {
+    font-family: $title-font;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 48px;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #B2DF28;;
+    color: #00B5CC;
+  }
+}

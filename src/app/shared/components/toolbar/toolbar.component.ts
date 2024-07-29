@@ -3,6 +3,7 @@ import { faHome, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { CharacterState } from '../../../state/character.state';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',

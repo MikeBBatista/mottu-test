@@ -6,6 +6,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatIconModule } from '@angular/material/icon';
 import { PageLoadingComponent } from './components/page-loading/page-loading.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { NoDataInfoComponent } from './components/no-data-info/no-data-info.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -14,17 +19,24 @@ import { PageLoadingComponent } from './components/page-loading/page-loading.com
     CharacterInfoComponent,
     ToolbarComponent,
     PageLoadingComponent,
+    BreadcrumbComponent,
+    NoDataInfoComponent,
   ],
   imports: [
     CommonModule,
     MatToolbarModule,
     FontAwesomeModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    RouterModule
   ],
   exports: [
     CharacterInfoComponent,
     ToolbarComponent,
     PageLoadingComponent,
+    BreadcrumbComponent,
+    NoDataInfoComponent,
   ]
 })
 export class SharedModule { }
